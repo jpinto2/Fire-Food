@@ -3,6 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
+import PageOne from './pages/pageOne';
+import Footer from './components/Footer';
 
 const client = new ApolloClient({
   uri: '/graphql',
