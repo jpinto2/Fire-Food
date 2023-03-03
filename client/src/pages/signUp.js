@@ -1,12 +1,12 @@
 import React from "react";
 
-
-function SignUp() {
-    return (
-            <div>
-               Link Two
-            </div>
-            );
-        }
+const SignUp = () => {
+  
+  return (
+    <div className="card bg-white card-rounded w-50">
+      Sign Up
+    </div>
+  );
+};
 
 export default SignUp;

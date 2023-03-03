@@ -22,8 +22,8 @@ function NavBar() {
           >
           <div className="links">
             <NavLink to='/'>Home</NavLink>
-            <NavLink to='/link-one'>Link One</NavLink>
-            <NavLink to='/link-two'>Link Two</NavLink>
+            <NavLink to='/findrestaurant'>Find Restaurant</NavLink>
+            <NavLink to='/signup'>Sign Up</NavLink>
           </div>
           </Nav>
 
