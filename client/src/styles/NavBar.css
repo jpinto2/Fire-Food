@@ -1,4 +1,31 @@
-.letter-title{
-    color: #e25822;
-    font-size: 60px;
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #719192;
 }
+
+h1 {
+    font-family: 'Nabla', cursive;
+    font-size: 65px;
+}
+
+.links {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 20px;
+}
+
+/* .links a.active{
+    color: yellow;
+} */
+

@@ -1,12 +1,12 @@
 import React from "react";
 
 
-function Home() {
+function LinkTwo() {
     return (
             <div>
-               Home
+               Link Two
             </div>
             );
         }
 
-export default Home;
+export default LinkTwo;
