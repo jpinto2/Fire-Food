@@ -9,9 +9,9 @@ function NavBar() {
                         <h1><span className="letter-title">F</span>ire Foods</h1>
                     </div>
                     <NavLink to='/'>Home</NavLink>
-                    <NavLink to='/linkOne'>Link 1</NavLink>
+                    <NavLink to='/findrestaurant'>Find Restaurant</NavLink>
                     <NavLink to='/linkTwo'>Link 2</NavLink>
-                    <NavLink to='/Sign-Up'>Sign Up/Login</NavLink>
+                    <NavLink to='/signup'>Sign Up/Login</NavLink>
                 </div>
             </div>
 }

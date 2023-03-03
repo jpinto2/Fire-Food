@@ -1,12 +1,12 @@
 import React from 'react';
 
-const PageOne = () => {
+const FindRestaurant = () => {
   
   return (
     <div className="card bg-white card-rounded w-50">
-      Page 1
+      Find Restaurant
     </div>
   );
 };
 
-export default PageOne;
+export default FindRestaurant;

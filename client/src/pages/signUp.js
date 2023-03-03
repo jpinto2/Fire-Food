@@ -4,7 +4,7 @@ const SignUp = () => {
   
   return (
     <div className="card bg-white card-rounded w-50">
-      HOME
+      Sign Up
     </div>
   );
 };
