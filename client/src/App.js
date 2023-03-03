@@ -15,15 +15,15 @@ function App() {
   return (
     // <ApolloProvider client={client}>
     <Router>
-      <NavBar/>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/LinkOne' element={<PageOne />}/>
-        <Route path='/' element={<Home />}/>
-        <Route path='/' element={<Home />}/>
-      </Routes>
-      <Footer/>
-  </Router>
+          <NavBar/>
+            <Routes>
+              <Route path='/' element={<Home />}/>
+              <Route path='/link-one' element={<LinkOne />}/>
+              <Route path='/link-two' element={<LinkTwo />}/>
+              <Route path='/sign-up' element={<SignUp />}/>
+            </Routes>
+            <Footer/>
+        </Router>
     // </ApolloProvider>
   );
 }

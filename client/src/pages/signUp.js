@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-const SignUp = () => {
-  
-  return (
-    <div className="card bg-white card-rounded w-50">
-      HOME
-    </div>
-  );
-};
+
+function SignUp() {
+    return (
+            <div>
+               Link Two
+            </div>
+            );
+        }
 
 export default SignUp;

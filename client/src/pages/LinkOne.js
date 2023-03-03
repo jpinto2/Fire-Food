@@ -1,12 +1,12 @@
 import React from "react";
 
 
-function Home() {
+function LinkOne() {
     return (
             <div>
-               Home
+               Link One
             </div>
             );
         }
 
-export default Home;
+export default LinkOne;
