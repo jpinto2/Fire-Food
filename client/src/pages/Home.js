@@ -1,14 +1,12 @@
-import React from 'react';
-import SearchBar from '../components/Searchbar';
+import React from "react";
 
-const Home = () => {
 
-  return (
-    <div className="card bg-white card-rounded w-50">
-      <SearchBar/>
-      HOME
-    </div>
-  );
-};
+function Home() {
+    return (
+            <div>
+               Home
+            </div>
+            );
+        }
 
 export default Home;

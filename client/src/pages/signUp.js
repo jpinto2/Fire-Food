@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const SignUp = () => {
   
   return (
     <div className="card bg-white card-rounded w-50">
-      HOME
+      Sign Up
     </div>
   );
 };

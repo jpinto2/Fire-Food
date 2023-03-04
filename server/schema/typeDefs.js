@@ -30,7 +30,7 @@ const typeDefs = gql`
    }
 
    type Query {
-    restaurants(name: String!, address: String): [Restaurants]
+    restaurants(name: String!, address: String): [Restaurant]
     restaurant: Restaurant
     user: User
    }
