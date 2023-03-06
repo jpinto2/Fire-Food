@@ -1,45 +1,60 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
-import '../styles/NavBar.css';
+import { Link } from 'react-router-dom';
+import NavBarCss from '../styles/NavBar.css'
 
 function NavBar() {
-  return (
-    <Navbar>
-      <Container fluid>
-        <Navbar.Brand>
-          <h1 className='logo'>Fire Foods</h1>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-          <div className="links">
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/findrestaurant'>Find Restaurant</NavLink>
-            <NavLink to='/signup'>Sign Up</NavLink>
-          </div>
-          </Nav>
 
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search.."
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="danger">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
+  return (
+    <>
+      <nav className="navbar navbar-dark bg-danger bg-gradient">
+  <div className="container-fluid ">
+
+    <Link to={'/'}>
+      <h1 className="logo ">Fire Foods</h1>
+    </Link>
+
+    <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <span className="navbar-toggler-icon "></span>
+    </button>
+    <div className="offcanvas offcanvas-end text-bg-dark" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div className="offcanvas-header">
+        <h1 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Fire Foods</h1>
+        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div className="offcanvas-body">
+        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li className="nav-item">
+
+            <Link to='/' className="nav-link active" aria-current="page">Home</Link>
+
+          </li>
+          <li className="nav-item">
+
+            <Link to='/add-review'className="nav-link">Add Review</Link>
+
+          </li>
+          <li className="nav-item">
+
+            <Link to='/profile'className="nav-link">Profile</Link>
+
+          </li>
+          <li className="nav-item">
+
+            <Link to='/sign-up'className="nav-link" >Sign Up</Link>
+
+          </li>
+        </ul>
+
+        <form className="d-flex mt-3" role="search">
+          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button className="btn btn-danger" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+    </>
+    )
+  }
 
 export default NavBar;
