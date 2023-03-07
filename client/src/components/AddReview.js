@@ -40,7 +40,7 @@ function AddReview() {
     e.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addReview({
         variables: {
           menuItem,
           date,

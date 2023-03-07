@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css'
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
+
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import AddReview from './pages/AddReview';
