@@ -5,11 +5,13 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
-import AddReview from './pages/Addreview';
-import Profile from './pages/Profile'
-// import SignUp from './pages/SignUp'
+import AddReview from './pages/AddReview';
+import Profile from './pages/Profile';
+import SignUp from './pages/SignUp';
+import FindRestaurant from './pages/FindRestaurant'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
+import Login from './pages/Login';
 
 
 const httpLink = createHttpLink({
@@ -35,18 +37,18 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    // <ApolloProvider client={client}>
-    <Router>
+    <ApolloProvider client={client}>
+      <Router>
         <NavBar/>
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/add-review' element={<AddReview />}/>
-          <Route path='/profile' element={<Profile />}/>
-          {/* <Route path='/sign-up' element={<SignUp />}/> */}
+          <Route path='/findrestaurant' element={<FindRestaurant />}/>
+          <Route path='/signup' element={<SignUp />}/>
+          <Route path='/login' element={<Login />}/>
         </Routes>
         <Footer/>
       </Router>
-    // </ApolloProvider>
+    </ApolloProvider>
   );
 }
 
