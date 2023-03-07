@@ -7,18 +7,14 @@ const resolvers = {
         restaurants: async () => {
             return await Restaurant.find()
         },
-        restaurant: async (parent, { _id }) => {
-            const restaurant = await Restaurant.findById(_id).populate({
-                populate: 'review'
-            });
+        restaurant: async (parent, { restaurantId }) => {
+            const restaurant = await Restaurant.findById({ _id: restaurantId }).populate('review');
 
             return restaurant;
         },
         user: async (parent, args, context) => {
             if (context.user) {
-                const user = await User.findById(context.user._id).populate({
-                    populate: 'review'
-                });
+                const user = await User.findById(context.user._id).populate('review');
       
                 return user;
             }
@@ -27,8 +23,8 @@ const resolvers = {
         },
     },
     Mutation: {
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
+        addUser: async (parent, { username, email, password }) => {
+            const user = await User.create({ username, email, password });
             const token = signToken(user);
 
             return { token, user };
@@ -36,7 +32,7 @@ const resolvers = {
         addRestaurant: async (parent, args, context) => {
             if (context.user) {
                 const restaurant = await Restaurant.create(args);
-
+    
                 return restaurant;
             }
 
@@ -45,13 +41,13 @@ const resolvers = {
         addReview: async (parent, args, context) => {
             if (context.user) {
                 const review = await Review.create(args);
-
+    
                 return review;
             }
 
             throw new AuthenticationError('Incorrect credentials');
         },
-        login: async () => {
+        login: async (parent, { username, password }) => {
             const user = await User.findOne({ username });
 
             if (!user) {

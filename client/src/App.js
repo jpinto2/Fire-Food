@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import FindRestaurant from './pages/FindRestaurant';
 import SignUp from './pages/SignUp'
 import Footer from './components/Footer';
+import Login from './pages/Login';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -31,18 +32,18 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    // <ApolloProvider client={client}>
-    <Router>
-      <NavBar/>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/findrestaurant' element={<FindRestaurant />}/>
-        <Route path='/signup' element={<SignUp />}/>
-        <Route path='/' element={<Home />}/>
-      </Routes>
-      <Footer/>
-  </Router>
-    // </ApolloProvider>
+    <ApolloProvider client={client}>
+      <Router>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/findrestaurant' element={<FindRestaurant />}/>
+          <Route path='/signup' element={<SignUp />}/>
+          <Route path='/login' element={<Login />}/>
+        </Routes>
+        <Footer/>
+      </Router>
+    </ApolloProvider>
   );
 }
 

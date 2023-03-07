@@ -24,6 +24,7 @@ function NavBar() {
             <NavLink to='/'>Home</NavLink>
             <NavLink to='/findrestaurant'>Find Restaurant</NavLink>
             <NavLink to='/signup'>Sign Up</NavLink>
+            <NavLink to='/login'>Login</NavLink>
           </div>
           </Nav>
 
