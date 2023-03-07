@@ -5,9 +5,10 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
-import AddReview from './pages/Addreview';
-import Profile from './pages/Profile'
-import SignUp from './pages/SignUp'
+import AddReview from './pages/AddReview';
+import Profile from './pages/Profile';
+import SignUp from './pages/SignUp';
+import FindRestaurant from './pages/FindRestaurant'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
 import Login from './pages/Login';
