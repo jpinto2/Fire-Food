@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import AddReview from './pages/Addreview';
 import Profile from './pages/Profile'
-// import SignUp from './pages/SignUp'
+import SignUp from './pages/SignUp'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
 import Login from './pages/Login';
@@ -36,7 +36,6 @@ const client = new ApolloClient({
 
 function App() {
   return (
-<<<<<<< HEAD
     <ApolloProvider client={client}>
       <Router>
         <NavBar/>
@@ -49,20 +48,6 @@ function App() {
         <Footer/>
       </Router>
     </ApolloProvider>
-=======
-    // <ApolloProvider client={client}>
-    <Router>
-        <NavBar/>
-        <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/add-review' element={<AddReview />}/>
-          <Route path='/profile' element={<Profile />}/>
-          {/* <Route path='/sign-up' element={<SignUp />}/> */}
-        </Routes>
-        <Footer/>
-      </Router>
-    // </ApolloProvider>
->>>>>>> d03205a0a8b8f77a35b1af4a809031c03c0824e1
   );
 }
 
