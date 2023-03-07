@@ -11,5 +11,5 @@ The Fire Food app is a robust and user-friendly application that makes it easy f
 
 - Connor Mcgrath
 - John Pinto
-- Herman Tapia
+- Hernan Tapia
 - Kenan Mesic
