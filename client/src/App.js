@@ -1,12 +1,16 @@
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import React from 'react';
+import './App.css'
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
-import FindRestaurant from './pages/FindRestaurant';
-import SignUp from './pages/SignUp'
+import AddReview from './pages/Addreview';
+import Profile from './pages/Profile'
+// import SignUp from './pages/SignUp'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -33,15 +37,15 @@ function App() {
   return (
     // <ApolloProvider client={client}>
     <Router>
-      <NavBar/>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/findrestaurant' element={<FindRestaurant />}/>
-        <Route path='/signup' element={<SignUp />}/>
-        <Route path='/' element={<Home />}/>
-      </Routes>
-      <Footer/>
-  </Router>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/add-review' element={<AddReview />}/>
+          <Route path='/profile' element={<Profile />}/>
+          {/* <Route path='/sign-up' element={<SignUp />}/> */}
+        </Routes>
+        <Footer/>
+      </Router>
     // </ApolloProvider>
   );
 }
