@@ -55,3 +55,18 @@ query getRestaurant($restaurantId: ID!) {
     }
   }
 `
+
+export const QUERY_REVIEWS = gql`
+query getReviews {
+  reviews {
+    comment
+    date
+    menuItem
+    rating
+    restaurant {
+      address
+      name
+    }
+  }
+}
+`

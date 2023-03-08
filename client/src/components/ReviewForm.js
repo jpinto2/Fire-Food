@@ -6,7 +6,9 @@ import { ADD_REVIEW } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-function ReviewForm() {
+function ReviewForm({
+  restaurantId
+}) {
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [menuItem, setMenuItem] = useState('');
@@ -42,9 +44,10 @@ function ReviewForm() {
     try {
       const { data } = await addReview({
         variables: {
+          restaurantId,
           menuItem,
           date,
-          rating,
+          rating: parseInt(rating),
           comment,
           username: Auth.getProfile().data.username,
         },

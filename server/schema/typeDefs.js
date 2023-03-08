@@ -30,15 +30,16 @@ const typeDefs = gql`
    }
 
    type Query {
-    restaurants(name: String, address: String): [Restaurant]
+    restaurants(name: String!, address: String): [Restaurant]
     restaurant(restaurantId: ID!): Restaurant
+    reviews: [Review]
     user: User
    }
 
    type Mutation {
     addUser(username: String!, email: String!, email: String!, password: String!): Auth
     addRestaurant(name: String!, address: String!): Restaurant
-    addReview(restaurant: [ID]!, menuItem: String!, date: String!, rating: Int!, comment: String): Review
+    addReview(restaurantId: String!, menuItem: String!, rating: Int!, comment: String): Review
     login(username: String!, password: String!): Auth
    }
 `

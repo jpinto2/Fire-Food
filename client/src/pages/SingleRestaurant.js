@@ -23,7 +23,9 @@ const SingleRestaurant = () => {
   
   return (
     <div className="card bg-white card-rounded w-50">
-      <ReviewForm/>
+      <ReviewForm
+        restaurantId={restaurantId}
+      />
       <ReviewList
         reviews={reviews}
       />

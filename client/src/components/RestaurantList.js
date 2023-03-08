@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const RestaurantList = ({
     restaurants
 }) => {
-    console.log(restaurants)
+
     if (!restaurants.length) {
         return <div>That restaurant hasn't been added yet. Use the form below to add it now!</div>
     }

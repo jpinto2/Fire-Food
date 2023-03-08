@@ -3,7 +3,7 @@ import React from 'react';
 const ReviewList = ({
     reviews
 }) => {
-
+    console.log(reviews)
     if (!reviews.length) {
         return <div>There are no reviews here yet!</div>
     }

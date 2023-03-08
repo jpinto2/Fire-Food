@@ -35,8 +35,8 @@ export const ADD_RESTAURANT = gql`
 `;
 
 export const ADD_REVIEW = gql`
-  mutation addReview($restaurant: [ID]!, $menuItem: String!, $date: String!, $rating: Int!) {
-    addReview(restaurant: $restaurant, menuItem: $menuItem, date: $date, rating: $rating) {
+  mutation addReview($restaurantId: String!, $menuItem: String!, $date: String!, $rating: Int!, $comment: String) {
+    addReview(restaurantId: $restaurantId, menuItem: $menuItem, date: $date, rating: $rating, comment: $comment) {
       _id
       comment
       date

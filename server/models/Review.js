@@ -1,8 +1,9 @@
 const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const reviewSchema = new Schema(
   {
-    restaurant: {
+    restaurantId: {
         type: Schema.Types.ObjectId,
         ref: 'Restaurant',
     },
@@ -13,6 +14,7 @@ const reviewSchema = new Schema(
     date: {
         type: Date,
         default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     },
     rating: {
         type: Number,
