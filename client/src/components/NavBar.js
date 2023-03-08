@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
 import NavBarCss from '../styles/NavBar.css'
 
+import Auth from "../utils/auth"
+
 function NavBar() {
 
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  
   return (
     <>
       <nav className="navbar navbar-dark bg-danger bg-gradient">
@@ -24,30 +31,30 @@ function NavBar() {
       <div className="offcanvas-body">
         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li className="nav-item">
-
             <Link to='/' className="nav-link active" aria-current="page">Home</Link>
-
           </li>
           <li className="nav-item">
-
             <Link to='/add-review'className="nav-link">Add Review</Link>
-
           </li>
           <li className="nav-item">
-
             <Link to='/profile'className="nav-link">Profile</Link>
-
           </li>
-          <li className="nav-item">
-
-            <Link to='/signup'className="nav-link" >Sign Up</Link>
-
-          </li>
-          <li className="nav-item">
-
-            <Link to='/login'className="nav-link" >Login</Link>
-
-          </li>
+        {Auth.loggedIn() ? (
+            <>
+              <button className="btn btn-danger" onClick={logout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <li className="nav-item">
+                <Link to='/signup'className="nav-link" >Sign Up</Link>
+              </li>
+              <li className="nav-item">
+                <Link to='/login'className="nav-link" >Login</Link>
+              </li>
+            </>
+          )}
         </ul>
 
         <form className="d-flex mt-3" role="search">

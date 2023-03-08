@@ -2,8 +2,8 @@ import React from "react";
 import { BsGithub , BsTwitter , BsFacebook , BsInstagram} from "react-icons/bs";
 
 function Footer() {
-    return <>
-                <div className="bg-danger bg-gradient p-2 ">
+    return <> 
+                <div className="bg-danger bg-gradient p-2">
                     <div className="container text-center text-white ">
                         <h3 className="p-3">Meet the team!</h3>
                         <div className="row">
