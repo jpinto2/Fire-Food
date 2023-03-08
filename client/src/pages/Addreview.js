@@ -1,14 +1,14 @@
 import React from 'react';
-import AddReview from '../components/AddReview';
+import ReviewForm from '../components/ReviewForm';
 
-const Addreview = () => {
+const AddReview = () => {
   
   return (
     <div className="card bg-white card-rounded w-50">
-      <AddReview/>
+      <ReviewForm/>
       Add Review
     </div>
   );
 };
 
-export default Addreview;
+export default AddReview;
