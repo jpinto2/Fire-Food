@@ -6,10 +6,10 @@ import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
-import AddReview from './pages/AddReview';
+import SingleRestaurant from './pages/SingleRestaurant';
 import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
-import FindRestaurant from './pages/FindRestaurant'
+import RestaurantSearch from './pages/RestaurantSearch'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
 import Login from './pages/Login';
@@ -43,7 +43,9 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/findrestaurant' element={<FindRestaurant />}/>
+          <Route path='/profile' element={<Profile />}/>
+          <Route path='/singlerestaurant/:restaurantId' element ={<SingleRestaurant />}/>
+          <Route path='/restaurantsearch' element={<RestaurantSearch />}/>
           <Route path='/signup' element={<SignUp />}/>
           <Route path='/login' element={<Login />}/>
         </Routes>

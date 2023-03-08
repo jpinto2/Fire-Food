@@ -30,7 +30,7 @@ function NavBar() {
           </li>
           <li className="nav-item">
 
-            <Link to='/add-review'className="nav-link">Add Review</Link>
+            <Link to='/restaurantsearch'className="nav-link">Find Restaurant</Link>
 
           </li>
           <li className="nav-item">
@@ -49,11 +49,6 @@ function NavBar() {
 
           </li>
         </ul>
-
-        <form className="d-flex mt-3" role="search">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-danger" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </div>

@@ -58,7 +58,7 @@ function AddRestaurant() {
 
   return (
     <div>
-      {Auth.loggenIn() ? (
+      {Auth.loggedIn() ? (
         <>
           <p>Add Restaurant</p>
           <form className="form">

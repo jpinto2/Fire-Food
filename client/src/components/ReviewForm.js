@@ -6,7 +6,7 @@ import { ADD_REVIEW } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-function AddReview() {
+function ReviewForm() {
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [menuItem, setMenuItem] = useState('');
@@ -46,7 +46,7 @@ function AddReview() {
           date,
           rating,
           comment,
-          thoughtAuthor: Auth.getProfile().data.username,
+          username: Auth.getProfile().data.username,
         },
       });
 
@@ -67,7 +67,7 @@ function AddReview() {
 
   return (
     <div>
-      {Auth.loggenIn() ? (
+      {Auth.loggedIn() ? (
         <>
           <p>Add review</p>
           <form className="form">
@@ -117,4 +117,4 @@ function AddReview() {
   );
 }
 
-export default AddReview;
+export default ReviewForm;
