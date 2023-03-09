@@ -11,7 +11,7 @@ const restaurantSchema = new Schema(
       unique: true,
       required: true,
     },
-    review: {
+    reviews: {
       type: Schema.Types.ObjectId,
       ref: 'Review',
     }

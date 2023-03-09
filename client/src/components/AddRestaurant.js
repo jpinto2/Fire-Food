@@ -38,7 +38,6 @@ function AddRestaurant() {
         variables: {
           name,
           address,
-          thoughtAuthor: Auth.getProfile().data.username,
         },
       });
 
@@ -58,7 +57,7 @@ function AddRestaurant() {
 
   return (
     <div>
-      {Auth.loggenIn() ? (
+      {Auth.loggedIn() ? (
         <>
           <p>Add Restaurant</p>
           <form className="form">

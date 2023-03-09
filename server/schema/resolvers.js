@@ -8,13 +8,28 @@ const resolvers = {
             return await Restaurant.find()
         },
         restaurant: async (parent, { restaurantId }) => {
-            const restaurant = await Restaurant.findById({ _id: restaurantId }).populate('review');
-
+            const restaurant = await Restaurant.findById({ _id: restaurantId }).populate('reviews');
+            
             return restaurant;
+        },
+        reviews: async (parent, args) => {
+            const reviews = await Review.find()
+
+            return reviews;
+        },
+        restaurantReviews: async (parent, { restaurantId }) => {
+            const reviews = await Review.find().where({ restaurantId: { restaurantId }})
+
+            return reviews;
+        },
+        userReviews: async (parent, { username }) => {
+            const reviews = await Review.find().where({ reviewUser: username })
+
+            return reviews;
         },
         user: async (parent, args, context) => {
             if (context.user) {
-                const user = await User.findById(context.user._id).populate('review');
+                const user = await User.findById(context.user._id).populate('reviews');
       
                 return user;
             }
@@ -29,18 +44,23 @@ const resolvers = {
 
             return { token, user };
         },
-        addRestaurant: async (parent, args, context) => {
+        addRestaurant: async (parent, { name, address }, context) => {
             if (context.user) {
-                const restaurant = await Restaurant.create(args);
+                const restaurant = await Restaurant.create({ name, address });
     
                 return restaurant;
             }
 
             throw new AuthenticationError('Incorrect credentials'); 
         },
-        addReview: async (parent, args, context) => {
+        addReview: async (parent, { restaurantId, menuItem, rating, comment }, context) => {
             if (context.user) {
-                const review = await Review.create(args);
+                const review = await Review.create({ 
+                    restaurantId, 
+                    reviewUser: context.user.username, 
+                    menuItem, 
+                    rating, 
+                    comment });
     
                 return review;
             }
@@ -49,8 +69,6 @@ const resolvers = {
         },
         login: async (parent, { username, password }) => {
             const user = await User.findOne({ username });
-            console.log('login')
-            console.log(user)
 
             if (!user) {
                 throw new AuthenticationError('Incorrect credentials');
