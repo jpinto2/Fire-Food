@@ -28,8 +28,9 @@ const RestaurantReviews = () => {
                         {review.menuItem}
                     </p>
                     <p className="card-body">
-                        Written on: {review.date}
-                        {review.rating}
+                        Written on: {review.date}{'\n'}
+                        By: {review.reviewUser}{'\n'}
+                        {review.rating}{'\n'}
                         {review.comment}
                     </p>
                 </div>
