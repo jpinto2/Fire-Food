@@ -33,7 +33,7 @@ const RestaurantSearch = () => {
             const { data } = await getRestaurants({   
                 variables: {
                     name: restaurantName,
-                    address: zipCode
+                    zipcode: zipCode
                 }
             });
 

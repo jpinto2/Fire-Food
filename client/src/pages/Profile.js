@@ -5,8 +5,10 @@ import { Link } from "react-router-dom"
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries'
 
+import UserReviews from '../components/UserReviews'
+
 const Profile = () => {
-  //const { loading, data } = useQuery()
+  const { loading, data } = useQuery(QUERY_USER)
 
   const logout = (event) => {
     event.preventDefault();
@@ -22,16 +24,7 @@ const Profile = () => {
               <button className="btn btn-danger" onClick={logout}>
                   Logout
                 </button>
-
-              <div className="card col-10 p-0">
-                <h5 className="card-header">Restaurant:</h5>
-                <div className="card-body">
-                  <p className="card-text">Menu Item: </p>
-                  <p className="card-text">Rating: </p>
-                  <p className="card-text">Comment: </p>
-                  <p className="card-text">your review was posted on [A random date]</p>
-                </div>
-              </div>
+              <UserReviews/>
             </div>
           </>
         ) : (
