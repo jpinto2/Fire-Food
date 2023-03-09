@@ -4,8 +4,12 @@ const dateFormat = require('../utils/dateFormat');
 const reviewSchema = new Schema(
   {
     restaurantId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Restaurant',
+        type: String,
+        required: true,
+    },
+    reviewUser: {
+        type: String,
+        required: true,
     },
     menuItem: {
         type: String,

@@ -28,7 +28,7 @@ const RestaurantSearch = () => {
     const handleFormSubmit = async (e) => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
-    
+        
         try {
             const { data } = await getRestaurants({   
                 variables: {
@@ -36,8 +36,6 @@ const RestaurantSearch = () => {
                     address: zipCode
                 }
             });
-
-            return data;
 
         } catch (err) {
             console.error(err);

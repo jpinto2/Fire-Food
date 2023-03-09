@@ -10,7 +10,8 @@ const typeDefs = gql`
 
    type Review {
     _id: ID
-    restaurant: Restaurant
+    restaurantId: String
+    reviewUser: String
     menuItem: String
     date: String
     rating: Int
@@ -33,13 +34,15 @@ const typeDefs = gql`
     restaurants(name: String!, address: String): [Restaurant]
     restaurant(restaurantId: ID!): Restaurant
     reviews: [Review]
+    restaurantReviews(restaurantId: String!): [Review]
+    userReviews(username: String!): [Review]
     user: User
    }
 
    type Mutation {
-    addUser(username: String!, email: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     addRestaurant(name: String!, address: String!): Restaurant
-    addReview(restaurantId: String!, menuItem: String!, rating: Int!, comment: String): Review
+    addReview(restaurantId: String!, reviewUser: String!, menuItem: String!, rating: Int!, comment: String): Review
     login(username: String!, password: String!): Auth
    }
 `

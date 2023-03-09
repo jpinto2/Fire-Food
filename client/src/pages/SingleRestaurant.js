@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import ReviewForm from '../components/ReviewForm';
-import ReviewList from '../components/ReviewList';
+import RestaurantReviews from '../components/RestaurantReviews';
 
 import { QUERY_SINGLE_RESTAURANT } from '../utils/queries';
 
@@ -14,7 +14,6 @@ const SingleRestaurant = () => {
   const { loading, data } = useQuery(QUERY_SINGLE_RESTAURANT, {
     variables: { restaurantId: restaurantId }
   })
-  const reviews = data?.reviews || []
   console.log(data)
 
   if (loading) {
@@ -23,12 +22,9 @@ const SingleRestaurant = () => {
   
   return (
     <div className="card bg-white card-rounded w-50">
-      <ReviewForm
-        restaurantId={restaurantId}
-      />
-      <ReviewList
-        reviews={reviews}
-      />
+
+      <ReviewForm/>
+      <RestaurantReviews/>
       
     </div>
   );

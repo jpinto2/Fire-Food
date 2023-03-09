@@ -38,7 +38,6 @@ function AddRestaurant() {
         variables: {
           name,
           address,
-          thoughtAuthor: Auth.getProfile().data.username,
         },
       });
 

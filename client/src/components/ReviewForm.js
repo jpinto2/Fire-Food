@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-function ReviewForm({
-  restaurantId
-}) {
+const ReviewForm = () => {
+  console.log(Auth.getProfile().data.username)
+  const { restaurantId } = useParams();
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [menuItem, setMenuItem] = useState('');
-  const [date, setDate] = useState('');
   const [rating, setRating] = useState('');
   const [comment, setComment] = useState('');
 
@@ -28,8 +28,6 @@ function ReviewForm({
     // Based on the input type, we set the state of either menuItem, date, rating, or comment
     if (inputType === 'menuItem') {
       setMenuItem(inputValue);
-    } else if (inputType === 'date') {
-      setDate(inputValue);
     } else if (inputType === 'rating') {
       setRating(inputValue);  
     } else {
@@ -45,16 +43,15 @@ function ReviewForm({
       const { data } = await addReview({
         variables: {
           restaurantId,
+          reviewUser: Auth.getProfile().data.username,
           menuItem,
-          date,
           rating: parseInt(rating),
-          comment,
-          username: Auth.getProfile().data.username,
+          comment
         },
       });
+      console.log(data)
 
       setMenuItem('');
-      setDate('');
       setRating('');
       setComment('');
     } catch (err) {
@@ -80,13 +77,6 @@ function ReviewForm({
               onChange={handleInputChange}
               type="text"
               placeholder="menuItem"
-            />
-            <input
-              value={date}
-              name="date"
-              onChange={handleInputChange}
-              type="date"
-              placeholder="date"
             />
             <input
               value={rating}

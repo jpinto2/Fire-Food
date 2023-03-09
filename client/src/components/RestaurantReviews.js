@@ -1,9 +1,17 @@
 import React from 'react';
 
-const ReviewList = ({
-    reviews
-}) => {
-    console.log(reviews)
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+
+import { QUERY_RESTAURANT_REVIEWS } from '../utils/queries';
+
+const RestaurantReviews = () => {
+    const { restaurantId } = useParams();
+    const { loading, data } = useQuery(QUERY_RESTAURANT_REVIEWS, {
+      variables: { restaurantId: restaurantId }
+    })
+    const reviews = data?.reviews || []
+
     if (!reviews.length) {
         return <div>There are no reviews here yet!</div>
     }
@@ -26,4 +34,4 @@ const ReviewList = ({
     )
 };
 
-export default ReviewList;
+export default RestaurantReviews;
