@@ -37,4 +37,4 @@ const Profile = () => {
     );
 };
 
-export default Profile; f18fd42
+export default Profile;

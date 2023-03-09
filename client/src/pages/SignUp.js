@@ -1,5 +1,3 @@
-<<<<<<< HEAD:client/src/pages/signUp.js
-=======
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -100,4 +98,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
->>>>>>> 80cb6680d209742078af152d0fea1917fa0a6f65:client/src/pages/SignUp.js
