@@ -15,7 +15,7 @@ export const QUERY_USER = gql`
                 restaurant {
                     _id
                     name
-                    address
+                    zipcode
                 }
             }
         }
@@ -23,11 +23,11 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_RESTAURANTS = gql`
-query getRestaurants($name: String!, $address: String!) {
-    restaurants(name: $name, address: $address) {
+query getRestaurants($name: String!, $zipcode: String!) {
+    restaurants(name: $name, zipcode: $zipcode) {
       _id
       name
-      address
+      zipcode
       reviews {
         _id
         reviewUser
@@ -45,7 +45,7 @@ query getRestaurant($restaurantId: ID!) {
     restaurant(restaurantId: $restaurantId) {
       _id
       name
-      address
+      zipcode
       reviews {
         _id
         reviewUser

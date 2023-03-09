@@ -10,7 +10,7 @@ function AddRestaurant() {
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
+  const [zipCode, setZipCode] = useState('');
 
   const [AddRestaurant, { error }] = useMutation(ADD_RESTAURANT)
 
@@ -25,7 +25,7 @@ function AddRestaurant() {
     if (inputType === 'name') {
       setName(inputValue);
     } else {
-      setAddress(inputValue);
+      setZipCode(inputValue);
     }
   };
 
@@ -37,12 +37,12 @@ function AddRestaurant() {
       const { data } = await AddRestaurant({
         variables: {
           name,
-          address,
+          zipcode: zipCode,
         },
       });
 
       setName('');
-      setAddress('');
+      setZipCode('');
 
     } catch (err) {
       console.error(err);
@@ -69,11 +69,11 @@ function AddRestaurant() {
               placeholder="name"
             />
             <input
-              value={address}
-              name="address"
+              value={zipCode}
+              name="zipCode"
               onChange={handleInputChange}
               type="text"
-              placeholder="address"
+              placeholder="Zipcode"
             />
 
             <button type="button" onClick={handleFormSubmit}>Submit</button>

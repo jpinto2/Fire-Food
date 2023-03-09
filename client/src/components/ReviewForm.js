@@ -8,7 +8,6 @@ import { ADD_REVIEW } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const ReviewForm = () => {
-  console.log(Auth.getProfile().data.username)
   const { restaurantId } = useParams();
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
@@ -49,7 +48,6 @@ const ReviewForm = () => {
           comment
         },
       });
-      console.log(data)
 
       setMenuItem('');
       setRating('');

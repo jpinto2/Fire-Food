@@ -4,7 +4,7 @@ const typeDefs = gql`
    type Restaurant {
     _id: ID
     name: String
-    address: String
+    zipcode: String
     reviews: [Review]
    }
 
@@ -31,7 +31,7 @@ const typeDefs = gql`
    }
 
    type Query {
-    restaurants(name: String!, address: String): [Restaurant]
+    restaurants(name: String!, zipcode: String): [Restaurant]
     restaurant(restaurantId: ID!): Restaurant
     reviews: [Review]
     restaurantReviews(restaurantId: String!): [Review]
@@ -41,8 +41,8 @@ const typeDefs = gql`
 
    type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addRestaurant(name: String!, address: String!): Restaurant
-    addReview(restaurantId: String!, reviewUser: String!, menuItem: String!, rating: Int!, comment: String): Review
+    addRestaurant(name: String!, zipcode: String!): Restaurant
+    addReview(restaurantId: String!, menuItem: String!, rating: Int!, comment: String): Review
     login(username: String!, password: String!): Auth
    }
 `

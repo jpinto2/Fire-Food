@@ -18,12 +18,12 @@ const resolvers = {
             return reviews;
         },
         restaurantReviews: async (parent, { restaurantId }) => {
-            const reviews = await Review.find().where({ restaurantId: { restaurantId }})
+            const reviews = await Review.find({ restaurantId: restaurantId })
 
             return reviews;
         },
         userReviews: async (parent, { username }) => {
-            const reviews = await Review.find().where({ reviewUser: username })
+            const reviews = await Review.find({ reviewUser: username })
 
             return reviews;
         },
@@ -44,9 +44,9 @@ const resolvers = {
 
             return { token, user };
         },
-        addRestaurant: async (parent, { name, address }, context) => {
+        addRestaurant: async (parent, { name, zipcode }, context) => {
             if (context.user) {
-                const restaurant = await Restaurant.create({ name, address });
+                const restaurant = await Restaurant.create({ name, zipcode });
     
                 return restaurant;
             }
@@ -60,8 +60,19 @@ const resolvers = {
                     reviewUser: context.user.username, 
                     menuItem, 
                     rating, 
-                    comment });
-    
+                    comment 
+                });
+                
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { reviews: review._id } }
+                );
+
+                await Restaurant.findOneAndUpdate(
+                    { _id: restaurantId},
+                    { $addToSet: { thoughts: review._id } }
+                );
+
                 return review;
             }
 

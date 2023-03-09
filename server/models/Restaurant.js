@@ -6,15 +6,16 @@ const restaurantSchema = new Schema(
       type: String,
       required: true,
     },
-    address: {
+    zipcode: {
       type: String,
-      unique: true,
       required: true,
     },
-    reviews: {
+    reviews: [
+      {
       type: Schema.Types.ObjectId,
       ref: 'Review',
-    }
+    },
+  ]
   }
 );
 

@@ -1,16 +1,15 @@
 import React from 'react';
+import Auth from '../utils/auth';
 
-import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { QUERY_USER_REVIEWS } from '../utils/queries';
 
-import { QUERY_RESTAURANT_REVIEWS } from '../utils/queries';
+const UserReviews = () => {
 
-const RestaurantReviews = () => {
-    const { restaurantId } = useParams();
-    const { loading, data } = useQuery(QUERY_RESTAURANT_REVIEWS, {
-      variables: { restaurantId: restaurantId }
+    const { loading, data } = useQuery(QUERY_USER_REVIEWS, {
+      variables: { username: Auth.getProfile().data.username }
     })
-    const reviews = data?.restaurantReviews || []
+    const reviews = data?.userReviews || []
 
     if (loading) {
         return <div>Loading...</div>;
@@ -38,4 +37,4 @@ const RestaurantReviews = () => {
     )
 };
 
-export default RestaurantReviews;
+export default UserReviews;

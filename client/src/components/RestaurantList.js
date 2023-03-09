@@ -15,7 +15,7 @@ const RestaurantList = ({
                 <div key={restaurant._id} className="card">
                     <Link to={`/singlerestaurant/${restaurant._id}`}>
                         <p>{restaurant.name}</p>
-                        <p>{restaurant.address}</p>
+                        <p>{restaurant.zipcode}</p>
                     </Link>
 
                 </div>
