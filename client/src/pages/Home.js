@@ -1,6 +1,7 @@
 import React from "react";
 import wings from "../images/wingsFood.jpeg"
 import pizza from "../images/pep-pizza.jpg"
+import Footer from "../components/Footer";
 
 function Home() {
     return (
@@ -13,6 +14,7 @@ function Home() {
                     <img src={pizza}></img>
                 </div>
             </div>
+        <Footer/>
         </>
     );
 }

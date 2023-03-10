@@ -22,15 +22,16 @@ const UserReviews = () => {
     return (
         <div>
             {reviews.map((review) => (
-                <div key={review._id} className="card">
+                <div key={review._id} className="card p-2">
                     <p className="card-header">
                         {review.menuItem}
                     </p>
                     <p className="card-body">
-                        Written on: {review.date}
-                        {review.rating}
-                        {review.comment}
+                        {review.rating}/10
                     </p>
+                    <p className='card-body'>
+                        {review.comment}</p>
+                    Written on: {review.date}
                 </div>
             ))}
         </div>

@@ -22,3 +22,21 @@ p.icons {
     display: inline-block;
     padding: 5px;
 }
+
+.card-body {
+    text-decoration: none;
+}
+
+P a {
+    text-decoration: none;
+    
+}
+
+P a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.team-info a {
+    color: whitesmoke;
+}

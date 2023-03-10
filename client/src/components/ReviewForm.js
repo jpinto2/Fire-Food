@@ -67,42 +67,50 @@ const ReviewForm = () => {
     <div>
       {Auth.loggedIn() ? (
         <>
-          <p>Add review</p>
-          <form className="form">
+        <div>
+          <h2 className= 'flex-row justify-center p-2'
+            >Add Review</h2>
+          <form className= 'flex-row justify-center mb-4 p-3 form'>
             <input
+            className="form-control p-2 mb-4"
               value={menuItem}
               name="menuItem"
               onChange={handleInputChange}
               type="text"
-              placeholder="menuItem"
+              placeholder="Menu Item"
             />
             <input
+            className="form-control p-2 mb-4"
               value={rating}
               name="rating"
               onChange={handleInputChange}
               type="number"
               min = "1"
               max = "10"
-              placeholder="rating"
+              placeholder="rate 1-10"
             />
             {
               // will likely need to update this later to make comment field not look like one line
             }
             <input
+            className="form-control p-2 mb-4"
               value={comment}
               name="comment"
               onChange={handleInputChange}
               type="text"
-              placeholder="comment"
+              placeholder="Comment"
             />
-            <button type="button" onClick={handleFormSubmit}>Submit</button>
+            <button className="btn btn-danger"type="button" onClick={handleFormSubmit}>Submit</button>
           </form>
+          </div>
         </>
       ) : (
-        <p>
-          You need to be logged in to add a review. Please{' '}
-          <Link to="/signup">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
+        <div className= 'flex-row justify-center p-2'>
+          <p>
+            You need to be logged in to add a review. Please{' '}
+            <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          </p>
+        </div>
       )}
     </div>
   );
