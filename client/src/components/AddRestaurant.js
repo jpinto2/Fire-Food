@@ -59,9 +59,11 @@ function AddRestaurant() {
     <div>
       {Auth.loggedIn() ? (
         <>
-          <p>Add Restaurant</p>
-          <form className="form">
+          <h2 className= 'flex-row justify-center p-2'
+            >Add Restaurant</h2>
+          <form className= 'flex-row justify-center mb-4 p-3 form'>
             <input
+            className="form-control p-2 mb-4"
               value={name}
               name="name"
               onChange={handleInputChange}
@@ -69,6 +71,7 @@ function AddRestaurant() {
               placeholder="name"
             />
             <input
+            className="form-control p-2 mb-4"
               value={zipCode}
               name="zipCode"
               onChange={handleInputChange}
@@ -76,13 +79,13 @@ function AddRestaurant() {
               placeholder="Zipcode"
             />
 
-            <button type="button" onClick={handleFormSubmit}>Submit</button>
+            <button className="btn btn-danger"  type="button" onClick={handleFormSubmit}>Submit</button>
           </form>
         </>
       ) : (
         <p>
           You need to be logged in to add a restaurant. Please{' '}
-          <Link to="/signup">login</Link> or <Link to="/signup">signup.</Link>
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>

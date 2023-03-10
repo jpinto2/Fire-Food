@@ -19,19 +19,29 @@ const Profile = () => {
       <div>  
         {Auth.loggedIn() ? (
           <>
-            <div className='container'>
-              <h2>Hey there, {Auth.getProfile().data.username}!</h2>
-              <button className="btn btn-danger" onClick={logout}>
+            <div className='container p-3'>
+              <h2>Welcome, {Auth.getProfile().data.username}!</h2>
+              <button className="btn btn-danger mb-3" onClick={logout}>
                   Logout
                 </button>
               <UserReviews/>
             </div>
           </>
         ) : (
-          <p>
-            You need to be logged in to view your profile. Please{' '}
-            <Link to="/signup">signup.</Link> or <Link to="/login">login</Link>
-          </p>
+          <div>
+            <h3 className="flex justify-center mb-4 p-5">
+              You need to be logged in to add a restaurant. Please{' '}
+              <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+            </h3>
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            {/* file up the page  */}
+    
+            
+
+
+        
+          </div>
         )}
       </div>
     );
