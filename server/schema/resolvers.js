@@ -4,8 +4,8 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        restaurants: async () => {
-            return await Restaurant.find()
+        restaurants: async (parent, { name }) => {
+            return await Restaurant.find({ name: {$regex: name} })
         },
         restaurant: async (parent, { restaurantId }) => {
             const restaurant = await Restaurant.findById({ _id: restaurantId }).populate('reviews');
